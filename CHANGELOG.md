@@ -6,11 +6,15 @@ _The format is based on [Keep a Changelog](http://keepachangelog.com/) and this 
 
 ## Unreleased
 
+- Rehydrate stylesheets from `textContent` rather than `innerHTML` to fix issue of selectors sometimes being HTML encoded (see [#3567](https://github.com/styled-components/styled-components/issues/3567)).
+
 - Use `class` instead of `className` for unidentified DOM elements (better support for styling web components)
 
 - Upgrade to stylis v4
 
 - Rename `masterSheet` in internals to `mainSheet`
+
+- Stabilize the identity of the style prop that is passed into components. This will help in styling PureComponent or React.memo components.
 
 ## [v5.3.0] - 2021-05-04
 

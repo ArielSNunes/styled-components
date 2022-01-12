@@ -1,10 +1,12 @@
+// eslint-disable-next-line
 const path = require('path');
-const baseConfig = require('./config.base');
+// eslint-disable-next-line
+const baseConfig = require('./jest.config.base');
 
 module.exports = Object.assign({}, baseConfig, {
-  rootDir: path.join(__dirname, '../../packages/styled-components'),
   roots: ['<rootDir>/src/'],
-  setupFiles: ['raf/polyfill', '<rootDir>/src/test/globals.ts'],
+  setupFiles: ['<rootDir>/src/test/globals.ts'],
   setupFilesAfterEnv: ['<rootDir>/test-utils/setupTestFramework.ts'],
+  testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['<rootDir>/src/native', '<rootDir>/src/primitives'],
 });

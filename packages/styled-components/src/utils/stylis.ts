@@ -15,7 +15,7 @@ type StylisInstanceConstructorArgs = {
 export default function createStylisInstance(
   {
     options = EMPTY_OBJECT as Object,
-    plugins = (EMPTY_ARRAY as unknown) as stylis.Middleware[],
+    plugins = EMPTY_ARRAY as unknown as stylis.Middleware[],
   }: StylisInstanceConstructorArgs = EMPTY_OBJECT as Object
 ) {
   let _componentId: string;
@@ -73,7 +73,7 @@ export default function createStylisInstance(
     const middlewares = plugins.slice();
 
     if (options.prefix || options.prefix === undefined) {
-      middlewares.push(prefixer);
+      middlewares.unshift(prefixer);
     }
 
     middlewares.push(selfReferenceReplacementPlugin, stringify);
